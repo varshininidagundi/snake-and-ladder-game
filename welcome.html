@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+    <link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
+    <style>
+        body{
+            background-color:  rgb(2, 86, 16);
+            background-image: url('page1.jpg') ;
+            background-size: 1000px 680px;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: aliceblue;
+            text-align:start;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'ADLaM Display';font-size: 16px;
+        }
+        .bg{
+            background-size: center ;
+        }
+        .info{
+            padding-top: 200px;
+
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bg d-flex flex-column ">
+        <div class="info">
+            <h4>ENTER NAMES OF PLAYERS</h4>
+            <label for="fname">First Player:</label>
+            <input type="text" id="playerone" name="Player1"><br><br>
+            <label for="lname">Last Player</label>
+            <input type="text" id="playertwo" name="Player2"><br><br>
+        </div>
+        <div class="d-flex text-start justify-content-start"></div>
+            <ul>Rules to play
+                <li>Initially both players are at 0 score.</li>
+                <li>click on the dice to roll a dice.</li>
+                <li>You should get 6 to start the game.</li>
+                <li>If u land at bottom of ladder of ladder u can move to the top of the Ladder.</li>
+                <li>if u land at head of Snake then u have to go to the tail of that snake.</li>
+                <li> player to move to the final position (i.e 100) is the WINNER .</li>
+            </ul>
+            <a href="sal.html">
+                <button id="submit">START</button>
+            </a>
+    </div>
+    <script src="welcome.js"></script>
+</body>
+</html>

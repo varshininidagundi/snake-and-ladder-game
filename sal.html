@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+<body >
+    <div class="container">
+        <div class="row mt-5" >
+            <div class="col-3 colLeft ">
+                    <!-- <div class="border bg-dark  d-flex flex-column align-items-center justify-content-center pb-2 mt-5 diceSection"> -->
+                        <h3 id = "togg"></h3>
+                        <h4> ROLL THE DICE </h4>
+                        <img src="dice.png" alt="dice-img" class="d-flex align-items-center justify-content-center w-2 h-2" id="dice">
+                    <!-- </div> -->
+            </div>
+            <div class="col-9 d-flex align-items-center justify-content-center ">
+                <div id="cnt">
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="100"></div>
+                        <div class="col-1 custom-border" id="99"></div>
+                        <div class="col-1 custom-border" id="98"></div>
+                        <div class="col-1 custom-border" id="97"></div>
+                        <div class="col-1 custom-border" id="96"></div>
+                        <div class="col-1 custom-border" id="95"></div>
+                        <div class="col-1 custom-border" id="94"></div>
+                        <div class="col-1 custom-border" id="93"></div>
+                        <div class="col-1 custom-border" id="92"></div>
+                        <div class="col-1 custom-border" id="91"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="81"></div>
+                        <div class="col-1 custom-border" id="82"></div>
+                        <div class="col-1 custom-border" id="83"></div>
+                        <div class="col-1 custom-border" id="84"></div>
+                        <div class="col-1 custom-border" id="85"></div>
+                        <div class="col-1 custom-border" id="86"></div>
+                        <div class="col-1 custom-border" id="87"></div>
+                        <div class="col-1 custom-border" id="88"></div>
+                        <div class="col-1 custom-border" id="89"></div>
+                        <div class="col-1 custom-border" id="90"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="80"></div>
+                        <div class="col-1 custom-border" id="79"></div>
+                        <div class="col-1 custom-border" id="78"></div>
+                        <div class="col-1 custom-border" id="77"></div>
+                        <div class="col-1 custom-border" id="76"></div>
+                        <div class="col-1 custom-border" id="75"></div>
+                        <div class="col-1 custom-border" id="74"></div>
+                        <div class="col-1 custom-border" id="73"></div>
+                        <div class="col-1 custom-border" id="72"></div>
+                        <div class="col-1 custom-border" id="71"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="61"></div>
+                        <div class="col-1 custom-border" id="62"></div>
+                        <div class="col-1 custom-border" id="63"></div>
+                        <div class="col-1 custom-border" id="64"></div>
+                        <div class="col-1 custom-border" id="65"></div>
+                        <div class="col-1 custom-border" id="66"></div>
+                        <div class="col-1 custom-border" id="67"></div>
+                        <div class="col-1 custom-border" id="68"></div>
+                        <div class="col-1 custom-border" id="69"></div>
+                        <div class="col-1 custom-border" id="70"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="60"></div>
+                        <div class="col-1 custom-border" id="59"></div>
+                        <div class="col-1 custom-border" id="58"></div>
+                        <div class="col-1 custom-border" id="57"></div>
+                        <div class="col-1 custom-border" id="56"></div>
+                        <div class="col-1 custom-border" id="55"></div>
+                        <div class="col-1 custom-border" id="54"></div>
+                        <div class="col-1 custom-border" id="53"></div>
+                        <div class="col-1 custom-border" id="52"></div>
+                        <div class="col-1 custom-border" id="51"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="41"></div>
+                        <div class="col-1 custom-border" id="42"></div>
+                        <div class="col-1 custom-border" id="43"></div>
+                        <div class="col-1 custom-border" id="44"></div>
+                        <div class="col-1 custom-border" id="45"></div>
+                        <div class="col-1 custom-border" id="46"></div>
+                        <div class="col-1 custom-border" id="47"></div>
+                        <div class="col-1 custom-border" id="48"></div>
+                        <div class="col-1 custom-border" id="49"></div>
+                        <div class="col-1 custom-border" id="50"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="40"></div>
+                        <div class="col-1 custom-border" id="39"></div>
+                        <div class="col-1 custom-border" id="38"></div>
+                        <div class="col-1 custom-border" id="37"></div>
+                        <div class="col-1 custom-border" id="36"></div>
+                        <div class="col-1 custom-border" id="35"></div>
+                        <div class="col-1 custom-border" id="34"></div>
+                        <div class="col-1 custom-border" id="33"></div>
+                        <div class="col-1 custom-border" id="32"></div>
+                        <div class="col-1 custom-border" id="31"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="21"></div>
+                        <div class="col-1 custom-border" id="22"></div>
+                        <div class="col-1 custom-border" id="23"></div>
+                        <div class="col-1 custom-border" id="24"></div>
+                        <div class="col-1 custom-border" id="25"></div>
+                        <div class="col-1 custom-border" id="26"></div>
+                        <div class="col-1 custom-border" id="27"></div>
+                        <div class="col-1 custom-border" id="28"></div>
+                        <div class="col-1 custom-border" id="29"></div>
+                        <div class="col-1 custom-border" id="30"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id="20"></div>
+                        <div class="col-1 custom-border" id="19"></div>
+                        <div class="col-1 custom-border" id="18"></div>
+                        <div class="col-1 custom-border" id="17"></div>
+                        <div class="col-1 custom-border" id="16"></div>
+                        <div class="col-1 custom-border" id="15"></div>
+                        <div class="col-1 custom-border" id="14"></div>
+                        <div class="col-1 custom-border" id="13"></div>
+                        <div class="col-1 custom-border" id="12"></div>
+                        <div class="col-1 custom-border" id="11"></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="col-1 custom-border" id = "1"> 
+                            <!-- <div class="d-flex align-items-center justify-content-center player1"></div> -->
+                            <!-- <div class="d-flex align-items-center justify-content-center player2"></div> -->
+                        </div>
+                        <div class="col-1 custom-border" id="2"></div>
+                        <div class="col-1 custom-border" id="3"></div>
+                        <div class="col-1 custom-border" id="4"></div>
+                        <div class="col-1 custom-border" id="5"></div>
+                        <div class="col-1 custom-border" id="6"></div>
+                        <div class="col-1 custom-border" id="7"></div>
+                        <div class="col-1 custom-border" id="8"></div>
+                        <div class="col-1 custom-border" id="9"></div>
+                        <div class="col-1 custom-border" id="10"></div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
