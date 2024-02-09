@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .one, .two {
+            position: absolute;
+            height: 50px;
+            width: 40px;
+        }
+        .one {
+            background-color: brown;
+            top: 0;
+            left: 0;
+        }
+        .two {
+            background-color: rgb(154, 123, 123);
+            top: 10px; /* Adjust this value as needed to overlap */
+            left: 10px; /* Adjust this value as needed to overlap */
+        }
+        .three{
+            margin-top: 80px;
+            height: 50px;
+            width: 40px;
+            background-color: aqua;
+        }
+        .four{
+            height: 50px;
+            width: 40px;
+            background-color: rgb(69, 69, 69);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="one">1</div>
+        <div class="two">2</div>
+    </div>
+    <div>
+        <div class="three">3</div>
+        <div class="four">4</div>
+    </div>
+</body>
+</html>

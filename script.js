@@ -1,6 +1,6 @@
 
-let p1Total =0
-let p2Total=0
+let p1Total = 0
+let p2Total = 0
 let diceRollingAudio = new Audio('dice.mp3')
 let ladderAudio = new Audio('ladder.mp3')
 let snakeAudio = new Audio('snake.mp3')
@@ -18,23 +18,22 @@ if (storedPlayer1 && storedPlayer2) {
 else {
     console.error('Values not found in localStorage.');
 }
+document.getElementById('togg').style.color="black"
 document.getElementById('togg').innerText=`${storedPlayer1}'s/black Player's turn to roll dice--`
-alert('welcome to snake and lader game',storedPlayer1,storedPlayer2)
 
-function winner(total,player){
-    if ( total >= 100){
+alert(`welcome to snake and lader game ${storedPlayer1} and ${storedPlayer2}`)
+
+function winner(player){
         if(player == 1){
-            winnerAudio.play()
-            setTimeout(alert("player 1 wins the game"), 7000);
+            document.getElementById('success').innerHTML=`<div class="border bg-dark  d-flex flex-column align-items-center justify-content-center pb-2 mt-5 fs-2 text-center diceSection"> &#11088;WINNER&#11088;<br> &#128526;&#x1F680;&#x1F3C6;	<br>${storedPlayer1}<br></div><a href='welcome.html'><button type="button" class="btn btn-success">START OVER</button></a>`
+            setTimeout(() => { alert("player 1 wins the game") }, 4000);
         }
-        else{
-            winnerAudio.play()
-            setTimeout(alert("player 2 wins the game"), 7000);
+        else if (player == 2){
+            document.getElementById('success').innerHTML=`<div class="border bg-dark  d-flex flex-column align-items-center justify-content-center pb-2 mt-5 fs-2 text-center diceSection"> &#11088;WINNER&#11088;<br> &#128526;&#x1F680;&#x1F3C6;	<br>${storedPlayer2}<br></div><a href='welcome.html'><button type="button" class="btn btn-success">START OVER</button>
+            </a>`
+            setTimeout(() => { alert("player 2 wins the game") }, 4000);
         }
-        location.reload();
-    }
 }
-// const myTimeout = setTimeout(winner, 5000);
 
 function game(player, diceScore, playerScore){
     let total 
@@ -49,6 +48,7 @@ function game(player, diceScore, playerScore){
         }
         if(diceScore === 6 && p1Total === 0 && !p1Started) {
             p1Started = true;
+            diceScore = 1
         }
         if(p1Started){
             p1Total += diceScore 
@@ -131,18 +131,51 @@ function game(player, diceScore, playerScore){
                 snakeAudio.play()
             }
             console.log("p1 total",p1Total)
-            let prevElement = document.getElementById(`${previousp1Total}`);
-            let currentElement = document.getElementById(`${p1Total}`);
-
-            if (prevElement) {
-                prevElement.innerHTML = ''; // Clear previous content
-            }
-
-            if (currentElement) {
-                currentElement.innerHTML = `<div class="d-flex align-items-center justify-content-center player1"></div>`;
-            }
+            // let prevElement = document.getElementById(`${previousp1Total}`);
+            // let currentElement = document.getElementById(`${p1Total}`);
+            // if (prevElement) { prevElement.innerHTML = ''; // Clear previous content }
+            // if (currentElement) {currentElement.innerHTML = `<div class="d-flex align-items-center justify-content-center player1"></div>`;}
 
             total = p1Total
+            //displaying
+            if (total < 10) {
+                document.getElementById('p1').style.left = `${(total - 1) * 62}px`;
+                document.getElementById('p1').style.top = `0px`
+                console.log('movement of player1')
+            }
+            else if(total==100){
+                winnerAudio.play()
+                console.log('winner');
+                document.getElementById('p1').style.left = `10px`
+                document.getElementById('p1').style.top = `-531px`
+                winner( player)
+            }
+            else if(total > 10 || total<100){
+                numarr = Array.from(String(total))
+                n1 = eval(numarr.shift())
+                n2 = eval(numarr.pop())
+                console.log(n1, n2,"n1, n2")
+                if (n1 % 2 != 0) {
+                    if (n2 == 0) {
+                        document.getElementById('p1').style.left = `${(9) * 62}px`
+                        document.getElementById('p1').style.top = `${(-n1 + 1) * 59}px`
+                    }
+                    else {
+                        document.getElementById('p1').style.left = `${(9 - (n2 - 1)) * 62}px`
+                        document.getElementById('p1').style.top = `${-n1 * 59}px`
+                    }
+                }
+                else if (n1 % 2 == 0) {
+                    if (n2 == 0) {
+                        document.getElementById('p1').style.left = `${(0) * 62}px`
+                        document.getElementById('p1').style.top = `${(-n1 + 1) * 59}px`
+                    }
+                    else {
+                        document.getElementById('p1').style.left = `${(n2 - 1) * 62}px`
+                        document.getElementById('p1').style.top = `${-n1 * 59}px`
+                    }
+                }
+            }
         }
     }
     else if (player == 2)
@@ -154,6 +187,7 @@ function game(player, diceScore, playerScore){
         }
         if(diceScore === 6 && p2Total === 0 && !p2Started) {
             p2Started = true;
+            diceScore = 1
         }
         if(p2Started){
             periviousp2Total = p2Total
@@ -239,21 +273,51 @@ function game(player, diceScore, playerScore){
                 snakeAudio.play()
             }
             console.log("p2 total",p2Total);
-            let prevElement = document.getElementById(`${periviousp2Total}`);
-            let currentElement = document.getElementById(`${p2Total}`);
-
-            if (prevElement) {
-                prevElement.innerHTML = ''; // Clear previous content
-            }
-
-            if (currentElement) {
-                currentElement.innerHTML = `<div class="d-flex align-items-center justify-content-center player2"></div>`;
-            }
-
+            // let prevElement = document.getElementById(`${periviousp2Total}`);
+            // let currentElement = document.getElementById(`${p2Total}`);
+            // if (prevElement) {  prevElement.innerHTML = ''; // Clear previous content }
+            // if (currentElement) {   currentElement.innerHTML = `<div class="d-flex align-items-center justify-content-center player2"></div>`; }
             total = p2Total
+            if (total < 10 ) {
+                document.getElementById('p2').style.left = `${(total - 1) * 62}px`;
+                document.getElementById('p2').style.top = `0px`
+            }
+            else if(total==100){
+                    winnerAudio.play()
+                    document.getElementById('p2').style.left = `10px`
+                    document.getElementById('p2').style.top = `-531px`
+                    winner( player);
+            }
+            else if(total >10 || total < 100) {
+                numarr = Array.from(String(total))
+                n1 = eval(numarr.shift())
+                n2 = eval(numarr.pop())
+                console.log(n1, n2,"n1, n2")
+                if (n1 % 2 != 0) {
+                    if (n2 == 0) {
+                        document.getElementById('p2').style.left = `${(9) * 62}px`
+                        document.getElementById('p2').style.top = `${(-n1 + 1) * 59 }px`
+                    }
+                    else {
+                        document.getElementById('p2').style.left = `${(9 - (n2 - 1)) * 62}px`
+                        document.getElementById('p2').style.top = `${-n1 * 59 }px`
+                    }
+                }
+                else if (n1 % 2 == 0) {
+                    if (n2 == 0) {
+                        document.getElementById('p2').style.left = `${(0) * 62}px`
+                        document.getElementById('p2').style.top = `${(-n1 + 1) * 59 }px`
+                    }
+                    else {
+                        document.getElementById('p2').style.left = `${(n2 - 1) * 62}px`
+                        document.getElementById('p2').style.top = `${-n1 * 59 }px`
+                    }
+                }
+            }
         }
-    setTimeout(() => { winner(p2Total, player); }, 4000);
-}
+    }
+    document.getElementById('p1').style.transition = `linear all 2s`
+    document.getElementById('p2').style.transition = `linear all 2s`
 }
 
 let dice = document.querySelector('#dice')
@@ -280,16 +344,18 @@ let diceChange = () =>{
     }
     console.log(randomDice)
     if (toggle == 1 ){
-        document.getElementById('togg').innerText=`${storedPlayer2}'s/red Player's turn to roll dice--- `
+        document.getElementById('togg').style.color="white"
+        document.getElementById('togg').innerText=`${storedPlayer2}'s/White Player's turn to roll dice--- `
         game(1, randomDice, p1Total)
         toggle=0;
     }
     else{
+        document.getElementById('togg').style.color="black"
         document.getElementById('togg').innerText=`${storedPlayer1}'s/black Player's turn to roll dice--`
         game(2, randomDice, p2Total)
         toggle=1
     }
 }
 dice.addEventListener('click', diceChange);
-//step by step movement 
-//if both players overlap then clear pervious value of that perticular player only
+//100th position display 
+//show winner in box

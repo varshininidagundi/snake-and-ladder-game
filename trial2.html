@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sourceDiv, #destinationDiv {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+#movingObject {
+    width: 100px;
+    height: 50px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 50px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="sourceDiv">
+        <div id="movingObject">Moving Object</div>
+    </div>
+    
+    <div id="destinationDiv">
+        Destination Div
+    </div>
+    
+    <button onclick="moveObject()">Move Object</button>
+    <img src="green.png" style="height:50px; width: 50px;">
+</body>
+<script>
+    function moveObject() {
+    // Get the element to be moved
+    let movingObject = document.getElementById("movingObject");
+
+    // Get the source and destination divs
+    let sourceDiv = document.getElementById("sourceDiv");
+    let destinationDiv = document.getElementById("destinationDiv");
+
+    // Get the positions of source and destination divs
+    let sourceRect = sourceDiv.getBoundingClientRect();
+    let destinationRect = destinationDiv.getBoundingClientRect();
+
+    // Calculate the difference in positions
+    let deltaX = destinationRect.left - sourceRect.left;
+    let deltaY = destinationRect.top - sourceRect.top;
+
+    // Apply the transformation to move the object
+    movingObject.style.transition = "transform 0.5s ease"; // Smooth transition
+    movingObject.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+    // After the transition is complete, move the object to the destination div
+    setTimeout(() => {
+        destinationDiv.appendChild(movingObject);
+        // Reset the transform to its original position
+        movingObject.style.transform = "none";
+    }, 500); // Wait for the transition duration
+}
+// function moveObject() {
+//     // Get the element to be moved
+//     let movingObject = document.getElementById("movingObject");
+
+//     // Get the destination div
+//     let destinationDiv = document.getElementById("destinationDiv");
+
+//     // Append the moving object to the destination div
+//     destinationDiv.appendChild(movingObject);
+// }
+
+</script>
+</html>

@@ -5,6 +5,7 @@ body{
     color: rgb(255, 255, 255);
     background-size: 100%;
     background-color: (0,0,0,0.3);
+    place-items: center;
 }
 body::before {
     content: "";
@@ -23,9 +24,11 @@ body::before {
 
 .diceSection {
     position: relative;
-    background: linear-gradient(to right, rgb(255, 179, 0), rgb(128, 0, 38));
-    color: white;
+    background: linear-gradient(to right, rgb(171, 255, 2), rgb(3, 246, 84));
+    color: rgb(0, 0, 0);
     padding: 10px;
+    border-radius: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .diceSection::before {
@@ -38,23 +41,37 @@ body::before {
     box-shadow: 0 0 0 3px transparent;
     border-radius: 6px;
 }
-
-
+#green, #blue{
+    height: 70px;
+    width: 60px;
+}
+/* .player1, .player2 {
+    position: absolute; /* Change position to absolute */
+    /* height: 40px; */
+    /* width: 40px; */
+    /* border: 1px solid white; */
+    /* border-radius: 50%; */
+    /* left: -80px; Initial left position */
+    /* top: 0px; Initial top position 
+} */
 .player1{
-    display: inline-block;
+    position:absolute;
     height: 40px;
     width: 40px;
-    border: 1px solid white;
-    background-color: rgb(0, 0, 0);
-    border-radius: 50%;
+    /* border: 1px solid white; */
+    /* background-color: black; */
+    left: -90px;
+    top:10px;
 }
 .player2{
-    display: inline-block;
+    position: absolute;
     height: 40px;
     width: 40px;
-    border: 1px solid white;
-    background-color:  rgb(252, 39, 1);
-    border-radius: 50%;
+    /* border: 1px solid white; */
+    /* background-color: rgb(255, 1, 1); */
+    left: -90px;
+    top:10px;
+    z-index: 1;
 }
 #cnt{
     background-image: url("board3.jpg");
@@ -63,12 +80,14 @@ body::before {
     width: 600px;
 }
 .custom-border {
+    padding: 5px;
     height: 60px;
     width: 60px;
-    /* border: 2px solid rgb(5, 5, 5); */
+    /* border: 2px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .colLeft{
     height:600px;
